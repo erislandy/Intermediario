@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="572fcd1c-f635-4b71-8780-6412783991c7"
+    Name="070ef67c-04ef-4cbe-941c-7092c5969695"
     Publisher="CN=Roxana Jerez"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="572fcd1c-f635-4b71-8780-6412783991c7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="070ef67c-04ef-4cbe-941c-7092c5969695" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Intermediario.UWP</DisplayName>

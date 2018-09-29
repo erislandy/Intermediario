@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Intermediario.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Intermediario
         {
             InitializeComponent();
 
-            MainPage = new Intermediario.MainPage();
+            MainPage = new CategoryView();
         }
 
         protected override void OnStart()
