@@ -3,10 +3,11 @@ namespace Intermediario.Services
 {
     using Intermediario.Interfaces;
     using Intermediario.Models;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    public class CategoriesManager : ICategoriesManager
+    public class CategoriesManager
     {
         #region Services
 
@@ -15,11 +16,7 @@ namespace Intermediario.Services
         #endregion
 
         #region Properties
-        public IDataService DataService
-        {
-            get;
-
-        }
+        public IList<Category> Categories { get; private set; }
 
         #endregion
 
@@ -28,6 +25,7 @@ namespace Intermediario.Services
         public CategoriesManager(IDataService dataService)
         {
             this.dataService = dataService;
+            Categories = dataService.Get<Category>(true);
         }
 
 
@@ -36,37 +34,45 @@ namespace Intermediario.Services
         #region Methods
         public Category Add(Category category)
         {
-            var cat = dataService.Get<Category>(false)
-                                .Where(c => c.Description.ToLower().Equals(category.Description.ToLower()))
-                                .FirstOrDefault();
+            Category categoryExpected = new Category();
+            var cat = Categories.Where(c => c.Description.ToLower().Equals(category.Description.ToLower()))
+                               .FirstOrDefault();
+            
             if (cat == null)
             {
-                return dataService.Insert<Category>(category);
+                categoryExpected = dataService.Insert<Category>(category);
+                Categories.Add(categoryExpected);
             }
             else
             {
-                return cat;
+                var message = string.Format("{0} is an existing category",category.Description);
+                throw new Exception(message);
             }
 
-
+            return categoryExpected;
+  
         }
 
         public void Delete(Category category)
         {
+            var cat = Categories.Where(
+                                         c => c.Description.ToLower()
+                                               .Equals(category.Description.ToLower())
+                                      ).FirstOrDefault();
+            if(cat.ProductList.Count > 0)
+            {
+                var message = string.Format("{0} contains products related", category.Description);
+                throw new Exception(message);
+            }
             dataService.Delete<Category>(category);
+            Categories.Remove(cat);
         }
-
-        public IList<Category> GetList()
-        {
-            return dataService.Get<Category>(true);
-        }
-
+        
         public void Update(Category category)
         {
             dataService.Update<Category>(category);
         }
-
-
+        
         #endregion
 
     }

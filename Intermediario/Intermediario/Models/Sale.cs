@@ -19,7 +19,7 @@ namespace Intermediario.Models
 
         //Navigation Properties
         public virtual Pay Pay { get; set; }
-        public virtual ProductStock ProductStock { get; set; }
+        public virtual Product Product { get; set; }
         public virtual Person Customer { get; set; }
         public virtual Person Messenger { get; set; }
 

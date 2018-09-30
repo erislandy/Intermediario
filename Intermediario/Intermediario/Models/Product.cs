@@ -11,6 +11,9 @@ namespace Intermediario.Models
         #region Consturctors
         public Product()
         {
+            PurchaseList = new List<Purchase>();
+            Sales = new List<Sale>();
+            ProductStockList = new List<ProductStock>();
         }
         #endregion
 
@@ -23,6 +26,10 @@ namespace Intermediario.Models
 
         //Navigation Properties
         public virtual Category Category { get; set; }
+        public virtual IList<Purchase> PurchaseList { get; set; }
+        public virtual IList<Sale> Sales { get; set; }
+        public virtual IList<ProductStock> ProductStockList { get; set; }
+
 
         #endregion
 

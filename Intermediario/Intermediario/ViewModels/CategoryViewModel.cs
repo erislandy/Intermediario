@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Intermediario.Interfaces;
 using Intermediario.Models;
+using Intermediario.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -96,7 +97,7 @@ namespace Intermediario.ViewModels
         #region Constructors
         public CategoryViewModel()
         {
-            dataService = new DataServiceTest();
+            dataService = new DataService();
         }
         #endregion
 
@@ -148,7 +149,7 @@ namespace Intermediario.ViewModels
             IsRefreshing = false;
             
         }
-        
-         
+        #endregion
+
     }
 }
