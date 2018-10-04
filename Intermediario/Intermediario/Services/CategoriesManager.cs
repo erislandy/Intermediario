@@ -11,7 +11,7 @@ namespace Intermediario.Services
     {
         #region Services
 
-        IDataService dataService;
+        IDataService _dataService;
 
         #endregion
 
@@ -24,8 +24,8 @@ namespace Intermediario.Services
 
         public CategoriesManager(IDataService dataService)
         {
-            this.dataService = dataService;
-            Categories = dataService.Get<Category>(true);
+            _dataService = dataService;
+            Categories = _dataService.Get<Category>(true);
         }
 
 
@@ -40,7 +40,7 @@ namespace Intermediario.Services
             
             if (cat == null)
             {
-                categoryExpected = dataService.Insert<Category>(category);
+                categoryExpected = _dataService.Insert<Category>(category);
                 Categories.Add(categoryExpected);
             }
             else
@@ -64,13 +64,13 @@ namespace Intermediario.Services
                 var message = string.Format("{0} contains products related", category.Description);
                 throw new Exception(message);
             }
-            dataService.Delete<Category>(category);
+            _dataService.Delete<Category>(category);
             Categories.Remove(cat);
         }
         
         public void Update(Category category)
         {
-            dataService.Update<Category>(category);
+            _dataService.Update<Category>(category);
         }
         
         #endregion

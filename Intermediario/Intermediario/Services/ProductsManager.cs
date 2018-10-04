@@ -1,18 +1,18 @@
-﻿using Intermediario.Interfaces;
-using Intermediario.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Intermediario.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Interfaces;
+    using Models;
+    
     public class ProductsManager
     {
         #region Services
 
-        IDataService dataService;
+        IDataService _dataService;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace Intermediario.Services
         #region Constructors
         public ProductsManager(IDataService dataService, Category category)
         {
-            this.dataService = dataService;
+            _dataService = dataService;
             _category = category;
             Products = category.ProductList;
            
@@ -40,7 +40,7 @@ namespace Intermediario.Services
 
         #region Methods
 
-
+       
         public Product Add(Product product)
         {
             Product productExpected = new Product();
@@ -49,7 +49,7 @@ namespace Intermediario.Services
 
             if (pro == null)
             {
-                productExpected = dataService.Insert<Product>(product);
+                productExpected = _dataService.Insert<Product>(product);
                 Products.Add(productExpected);
                 
             }
@@ -76,13 +76,13 @@ namespace Intermediario.Services
                 var message = string.Format("{0} contains elements related", product.Name);
                 throw new Exception(message);
             }
-            dataService.Delete<Product>(product);
+            _dataService.Delete<Product>(product);
             Products.Remove(pro);
         }
 
         public void Update(Category category)
         {
-            dataService.Update<Category>(category);
+            _dataService.Update<Category>(category);
         }
 
         #endregion

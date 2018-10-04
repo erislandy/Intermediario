@@ -39,9 +39,18 @@ namespace Intermediario.Models
 
     }
 
+    /*
+    
+        1- Available state 
+        2- AwaitingForPaid state means produts is awaiting for paid
+        3- Moved state means product has been moved out stock
+        4- AwaitingForReturn state means product has been returned to provider
+            because is a faulty product 
+    
+    */
     public enum StateEnum
     {
-        Available, AwaitingForPaid, 
+        Available, AwaitingForPaid, Moved, AwaitingForReturn
     }
 
 }
