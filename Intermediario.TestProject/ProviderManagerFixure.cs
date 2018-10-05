@@ -15,6 +15,7 @@
         
         List<Provider> providers;
         Mock<IDataService> dataServiceMock;
+        List<ProductStock> list;
 
         [TestInitialize]
         public void Setup()

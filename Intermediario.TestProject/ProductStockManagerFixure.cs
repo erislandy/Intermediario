@@ -66,8 +66,6 @@ namespace Intermediario.TestProject
                     ProviderId = 1,
                     Amount = 10,
                     State = StateEnum.Available,
-                    PriceIn = 2.00,
-                    PriceOut = 3.00,
                     Code = "11" + StateEnum.Available.ToString(),
                     Product = product2,
                     Provider = provider1
@@ -79,8 +77,6 @@ namespace Intermediario.TestProject
                     ProviderId = 1,
                     Amount = 5,
                     State = StateEnum.AwaitingForPaid,
-                    PriceIn = 2.00,
-                    PriceOut = 3.00,
                     Code = "11" + StateEnum.AwaitingForPaid.ToString(),
                     Product = product2,
                     Provider = provider1
@@ -92,8 +88,6 @@ namespace Intermediario.TestProject
                     ProviderId = 1,
                     Amount = 5,
                     State = StateEnum.Available,
-                    PriceIn = 1.80,
-                    PriceOut = 2.50,
                     Code = "31" + StateEnum.Available.ToString(),
                     Product = product1,
                     Provider = provider1
@@ -105,8 +99,6 @@ namespace Intermediario.TestProject
                     ProviderId = 2,
                     Amount = 5,
                     State = StateEnum.Available,
-                    PriceIn = 1.80,
-                    PriceOut = 2.50,
                     Code = "32" + StateEnum.Available.ToString(),
                     Product = product1,
                     Provider = provider2
@@ -118,34 +110,28 @@ namespace Intermediario.TestProject
                     ProviderId = 2,
                     Amount = 1,
                     State = StateEnum.Moved,
-                    PriceIn = 1.80,
-                    PriceOut = 2.50,
                     Code = "32" + StateEnum.Moved.ToString(),
                     Product = product1,
                     Provider = provider2
                 },
-                 new ProductStock()
+                new ProductStock()
                 {
                     ProductStockId = 6,
                     ProductId = 1,
                     ProviderId = 2,
                     Amount = 5,
                     State = StateEnum.AwaitingForPaid,
-                    PriceIn = 2.00,
-                    PriceOut = 3.00,
                     Code = "11" + StateEnum.AwaitingForPaid.ToString(),
                     Product = product2,
                     Provider = provider2
                 },
-                  new ProductStock()
+                new ProductStock()
                 {
                     ProductStockId = 7,
                     ProductId = 1,
                     ProviderId = 2,
                     Amount = 5,
                     State = StateEnum.Available,
-                    PriceIn = 2.00,
-                    PriceOut = 3.00,
                     Code = "12" + StateEnum.Available.ToString(),
                     Product = product2,
                     Provider = provider2
@@ -168,8 +154,6 @@ namespace Intermediario.TestProject
                 ProviderId = 1,
                 Amount = 10,
                 State = StateEnum.Available,
-                PriceIn = 2.00,
-                PriceOut = 3.00,
                 Product = product2,
                 Provider = provider1
             };
@@ -187,8 +171,6 @@ namespace Intermediario.TestProject
                 ProviderId = 1,
                 Amount = 10,
                 State = StateEnum.AwaitingForReturn,
-                PriceIn = 2.00,
-                PriceOut = 3.00,
                 Product = product2,
                 Provider = provider1
             };
@@ -198,8 +180,6 @@ namespace Intermediario.TestProject
                             ProductStockId = list.Count + 1,
                             Amount = proStock.Amount,
                             Code = proStock.Code,
-                            PriceIn = proStock.PriceIn,
-                            PriceOut = proStock.PriceOut,
                             Product = proStock.Product,
                             ProductId = proStock.ProductId,
                             ProviderId = proStock.ProviderId,
@@ -231,8 +211,6 @@ namespace Intermediario.TestProject
                 ProviderId = 1,
                 Amount = 3,
                 State = StateEnum.Available,
-                PriceIn = 1.80,
-                PriceOut = 2.50,
                 Code = "31" + StateEnum.Available.ToString(),
                 
             };
@@ -307,8 +285,6 @@ namespace Intermediario.TestProject
                                 ProviderId = 1,
                                 Amount = 2,
                                 State = StateEnum.AwaitingForPaid,
-                                PriceIn = 1.80,
-                                PriceOut = 2.50,
                                 Code = "31" + StateEnum.AwaitingForPaid.ToString()})
                                 .Verifiable();
             var proStockManager = new ProductStockManager(dataServiceMock.Object);

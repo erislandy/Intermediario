@@ -91,8 +91,6 @@ namespace Intermediario.Services
                 ProviderId = productStock.ProviderId,
                 Amount = amount,
                 State = nextState,
-                PriceIn = productStock.PriceIn,
-                PriceOut = productStock.PriceOut,
                 Product = productStock.Product,
                 Provider = productStock.Provider,
             };

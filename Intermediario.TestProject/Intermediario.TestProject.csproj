@@ -66,6 +66,7 @@
     <Compile Include="ProductStockManagerFixure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderManagerFixure.cs" />
+    <Compile Include="PurchaseManagerFixure.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

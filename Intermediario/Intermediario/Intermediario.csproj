@@ -61,6 +61,7 @@
     <Compile Include="Services\ProductsManager.cs" />
     <Compile Include="Services\ProductStockManager.cs" />
     <Compile Include="Services\ProviderManager.cs" />
+    <Compile Include="Services\PurchaseManager.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\CategoryView.xaml.cs">

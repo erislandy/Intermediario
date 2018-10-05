@@ -11,6 +11,7 @@ namespace Intermediario.Models
         public int PurchaseId { get; set; }
         public int ProviderId { get; set; }
         public int ProductId { get; set; }
+        public double PriceIn { get; set; }
         public DateTime DatePurchase { get; set; }
         public double Amount { get; set; }
         public string Remarks { get; set; }

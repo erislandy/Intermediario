@@ -19,8 +19,6 @@ namespace Intermediario.Models
         public int ProductId { get; set; }
         public string Code { get; set; }
         public double Amount { get; set; }
-        public double PriceIn { get; set; }
-        public double PriceOut { get; set; }
         public StateEnum State { get; set; }
 
         //Navigation Properties
