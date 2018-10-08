@@ -62,11 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriesManagerTextFixure.cs" />
+    <Compile Include="PayManagerFixure.cs" />
     <Compile Include="ProductsManagerFixure.cs" />
     <Compile Include="ProductStockManagerFixure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderManagerFixure.cs" />
     <Compile Include="PurchaseManagerFixure.cs" />
+    <Compile Include="SaleManagerFixure.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

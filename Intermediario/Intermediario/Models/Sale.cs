@@ -10,16 +10,17 @@ namespace Intermediario.Models
 
         public int SaleId { get; set; }
         public int PayId { get; set; }
-        public int ProductId { get; set; }
+        public int ProductStockId { get; set; }
         public int CustomerId { get; set; }
         public int MessengerId { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime SaleDate { get; set; }
         public double Amount { get; set; }
-        public StateSale StateSale { get; set; }
+        public double SalePrice { get; set; }
+        public SaleState SaleState { get; set; }
 
         //Navigation Properties
         public virtual Pay Pay { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual ProductStock ProductStock { get; set; }
         public virtual Person Customer { get; set; }
         public virtual Person Messenger { get; set; }
 
@@ -33,7 +34,7 @@ namespace Intermediario.Models
         #endregion
     }
 
-    public enum StateSale
+    public enum SaleState
     {
         PendingLiquidate, Liquidated, Certificated
     }
