@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Intermediario.App"
-             xmlns:infra="clr-namespace:Intermediario.Infrastructure">
+<prism:PrismApplication
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Intermediario.App"
+    xmlns:infra="clr-namespace:Intermediario.Infrastructure"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" >
+    
 	<Application.Resources>
-
-		<!-- Application resource dictionary -->
         <ResourceDictionary>
-            <!--   Locator  -->
-            <infra:InstanceLocator x:Key="Locator"/>
-        </ResourceDictionary>
+           
+            <!-- Colors -->
+            <Color x:Key="MainColor">#1CA5B8</Color>
+            <Color x:Key="FontColor">#012C40</Color>
+            <Color x:Key="AccentColor1">#FF5521</Color>
+            <Color x:Key="AccentColor2">#4DB84B</Color>
+            <Color x:Key="BackgroundColor">#DAEBF2</Color>
 
-	</Application.Resources>
-</Application>
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</prism:PrismApplication>

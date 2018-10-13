@@ -1,4 +1,6 @@
 ﻿using Intermediario.Views;
+using Prism;
+using Prism.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +10,22 @@ using Xamarin.Forms;
 
 namespace Intermediario
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new CategoryView();
+            NavigationService.NavigateAsync(nameof(MasterView));
+        }
+
+        protected override void RegisterTypes()
+        {
+            Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<MasterView>();
+
         }
 
         protected override void OnStart()
@@ -31,5 +42,7 @@ namespace Intermediario
         {
             // Handle when your app resumes
         }
+
+      
     }
 }

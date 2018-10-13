@@ -92,12 +92,14 @@ namespace Intermediario.ViewModels
             }
         }
 
+        public string Text { get; set; }
         #endregion
 
         #region Constructors
         public CategoryViewModel()
         {
             dataService = new DataService();
+            Text = "Hola";
         }
         #endregion
 
