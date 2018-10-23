@@ -25,6 +25,10 @@ namespace Intermediario
         {
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<MasterView>();
+            Container.RegisterTypeForNavigation<InputListView>();
+            Container.RegisterTypeForNavigation<StockView>();
+            Container.RegisterTypeForNavigation<ManagerView>();
+            Container.RegisterTypeForNavigation<PayListView>();
 
         }
 

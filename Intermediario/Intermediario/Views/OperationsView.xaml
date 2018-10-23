@@ -1,8 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Intermediario.Views.OperationsView">
-    <StackLayout>
-        <Label Text="Todo Ok"/>
-    </StackLayout>
+             x:Class="Intermediario.Views.OperationsView"
+             xmlns:prism ="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             Title="Intermediario"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                BackgroundColor="{StaticResource BackgroundColor}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding OptionsList}" 
+                >
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                        Command="{Binding NavigationCommand, Mode=TwoWay}"
+                        EventName="ItemTapped"
+                        EventArgsParameterPath="Item"
+                        >
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
+                
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell
+                            >
+                            <Grid
+                                ColumnSpacing="0"
+                                Margin="5">
+                               
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image 
+                                Grid.Column="0"
+                                
+                                HorizontalOptions="Start"
+                                Source="{Binding ImagePath}"
+                                Margin="0"
+                                VerticalOptions="CenterAndExpand"
+                                >
+
+                                </Image>
+                                <StackLayout
+                                    Grid.Column="1"
+                                    BackgroundColor="White"
+                                    >
+                                    <Label 
+                                        FontSize="Large"
+                                        HorizontalOptions="FillAndExpand"
+                                        Margin="15,0,0,0"
+                                        Opacity="0.7"
+                                        Text="{Binding Name, Mode=TwoWay}"
+                                        TextColor="{StaticResource FontColor}"
+                                        VerticalOptions="FillAndExpand"
+                                        >
+
+                                    </Label>
+                                    <Label
+                                        FontSize="Small"
+                                        HorizontalOptions="FillAndExpand"
+                                        Margin="15,0,0,0"
+                                        Opacity="0.7"
+                                        Text="{Binding Description, Mode=TwoWay}"
+                                        TextColor="{StaticResource FontColor}"
+                                        VerticalOptions="FillAndExpand"
+                                        >
+
+                                    </Label>
+
+                                </StackLayout>
+                                
+
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

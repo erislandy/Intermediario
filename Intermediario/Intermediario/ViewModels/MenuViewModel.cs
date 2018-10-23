@@ -17,6 +17,7 @@ namespace Intermediario.ViewModels
         List<Menu> _menuList;
 
         #endregion
+        
         #region Properties
         public ObservableCollection<Menu> MyMenu
         {
@@ -25,17 +26,23 @@ namespace Intermediario.ViewModels
         }
         #endregion
 
+        #region Constructors
 
         public MenuViewModel()
         {
             _menuList = new List<Menu>()
             {
-              new Menu(){ Title = "Menu1"},
-               new Menu(){ Title = "Menu2"},
-                new Menu(){ Title = "Menu3"}
+              new Menu(){ Title = "Stock",Icon="stock_menu"},
+              new Menu(){ Title = "Inputs", Icon="inputs"},
+              new Menu(){ Title = "Pays", Icon="pays"},
+               new Menu(){ Title = "Managers", Icon="manager_menu"}
             };
             MyMenu = new ObservableCollection<Menu>(_menuList);
 
         }
+
+        #endregion
+
+
     }
 }
