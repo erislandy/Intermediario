@@ -21,12 +21,12 @@ namespace Intermediario.ViewModels
 
         #region Attributes
 
-        List<Options> _optionsList;
+        List<Option> _optionsList;
 
         #endregion
 
         #region Properties
-        public ObservableCollection<Options> OptionsList { get; set; }
+        public ObservableCollection<Option> OptionsList { get; set; }
 
         #endregion
 
@@ -34,30 +34,30 @@ namespace Intermediario.ViewModels
 
         public OperationsViewModel(INavigationService navigationService)
         {
-            _optionsList = new List<Options>()
+            _optionsList = new List<Option>()
             {
-                new Options()
+                new Option()
                 {
                     Name = "Stock",
                     Description ="You can see all products in stock and change its states",
                     ImagePath = "stock_product1",
                     TargetPage="StockView"
                 },
-                new Options()
+                new Option()
                 {
                     Name = "Inputs",
                     Description ="Enter and display inputs by different provider",
                     ImagePath = "product_transfer",
                     TargetPage = "InputListView"
                 },
-                new Options()
+                new Option()
                 {
                     Name = "Pays",
                     Description ="Edit and display pays",
                     ImagePath = "pay_products",
                     TargetPage="PayListView"
                 },
-                new Options()
+                new Option()
                 {
                     Name = "Managers",
                     Description ="You can do CRUD to product, category and provider entity",
@@ -66,14 +66,14 @@ namespace Intermediario.ViewModels
                 }
             };
 
-            OptionsList = new ObservableCollection<Options>(_optionsList);
+            OptionsList = new ObservableCollection<Option>(_optionsList);
 
             
 
             _navigationService = navigationService;
         }
 
-        private void NavigationMethod(Options option)
+        private void NavigationMethod(Option option)
         {
            _navigationService.NavigateAsync(option.TargetPage);
         }
@@ -87,7 +87,7 @@ namespace Intermediario.ViewModels
         {
             get
             {
-                return new DelegateCommand<Options>(NavigationMethod);
+                return new DelegateCommand<Option>(NavigationMethod);
             }
         }
         #endregion

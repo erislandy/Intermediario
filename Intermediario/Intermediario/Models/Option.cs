@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Intermediario.Models
 {
-    public class Options
+    public class Option
     {
        
         #region Properties

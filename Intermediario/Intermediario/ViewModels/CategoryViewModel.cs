@@ -1,7 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿
 using Intermediario.Interfaces;
 using Intermediario.Models;
 using Intermediario.Services;
+using Prism.Commands;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -109,7 +110,7 @@ namespace Intermediario.ViewModels
         {
             get
             {
-                return new RelayCommand(LoadCategories);
+                return new DelegateCommand(LoadCategories);
             }
 
         }
@@ -118,7 +119,7 @@ namespace Intermediario.ViewModels
         {
             get
             {
-                return new RelayCommand(Search);
+                return new DelegateCommand(Search);
             }
         }
         void Search()

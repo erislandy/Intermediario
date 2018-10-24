@@ -11,7 +11,7 @@ namespace Intermediario.Models
         #region Properties
         public string Icon { get; set; }
         public string Title { get; set; }
-        public string PageName { get; set; }
+        public string TargetPage { get; set; }
 
         #endregion
 
