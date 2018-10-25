@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\NameToCaracterConverter.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Interfaces\ICategoriesManager.cs" />
     <Compile Include="Interfaces\IConfig.cs" />

@@ -3,10 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Intermediario.Views.InputListView"
              xmlns:prism ="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:converter="clr-namespace:Intermediario.Converters"
              prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:NameToCaracterConverter x:Key="converterName"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Text}"/>
+            <ListView
+                BackgroundColor="{StaticResource BackgroundColor}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding InputList}">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Margin="5"
+                                BackgroundColor="White">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Button
+                                    BackgroundColor="{StaticResource AccentColor2}"
+                                    FontSize="22"
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    HeightRequest="50"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="{Binding Provider.Name, Converter={StaticResource converterName}}"
+                                    TextColor="White"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="50">
+                                </Button>
+                                
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    Grid.Row="0"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding Provider.Name}"
+                                    VerticalOptions="CenterAndExpand">
+                                    
+                                </Label>
+
+                                <Label 
+                                    FontSize="Small"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    HorizontalOptions="StartAndExpand"
+                                    Opacity="0.5"
+                                    Margin="5,0,0,0"
+                                    Text="{Binding Product.Name}"
+                                    VerticalOptions="CenterAndExpand">
+                                </Label>
+
+                                <Label 
+                                    FontSize="Small"
+                                    Grid.Column="2"
+                                    Grid.Row="1"
+                                    HorizontalOptions="StartAndExpand"
+                                    Opacity="0.5"
+                                    Margin="5,0,0,0"
+                                    Text="{Binding DatePurchase}"
+                                    VerticalOptions="CenterAndExpand">
+                                </Label>
+                                
+                                <Label 
+                                    FontSize="Small"
+                                    Grid.Column="3"
+                                    Grid.Row="1"
+                                    HorizontalOptions="EndAndExpand"
+                                    Opacity="0.5"
+                                    Margin="0,0,5,0"
+                                    Text="{Binding Amount}"
+                                    TextColor="{StaticResource AccentColor2}"
+                                    VerticalOptions="CenterAndExpand">
+                                </Label>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
