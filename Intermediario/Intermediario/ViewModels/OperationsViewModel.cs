@@ -73,11 +73,7 @@ namespace Intermediario.ViewModels
             _navigationService = navigationService;
         }
 
-        private void NavigationMethod(Option option)
-        {
-           _navigationService.NavigateAsync(option.TargetPage);
-        }
-
+        
         #endregion
 
         #region Commands
@@ -90,6 +86,12 @@ namespace Intermediario.ViewModels
                 return new DelegateCommand<Option>(NavigationMethod);
             }
         }
+
+        private void NavigationMethod(Option option)
+        {
+            _navigationService.NavigateAsync(option.TargetPage);
+        }
+
         #endregion
     }
 }

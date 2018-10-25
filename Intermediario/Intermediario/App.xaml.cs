@@ -29,6 +29,8 @@ namespace Intermediario
             Container.RegisterTypeForNavigation<StockView>();
             Container.RegisterTypeForNavigation<ManagerView>();
             Container.RegisterTypeForNavigation<PayListView>();
+            Container.RegisterTypeForNavigation<InputDetailsView>();
+
 
         }
 

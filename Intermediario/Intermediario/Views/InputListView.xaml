@@ -4,6 +4,7 @@
              x:Class="Intermediario.Views.InputListView"
              xmlns:prism ="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:converter="clr-namespace:Intermediario.Converters"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -16,7 +17,14 @@
                 BackgroundColor="{StaticResource BackgroundColor}"
                 HasUnevenRows="True"
                 ItemsSource="{Binding InputList}">
-                
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding ItemTappedCommand}"
+                        EventArgsParameterPath="Item">
+                        
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

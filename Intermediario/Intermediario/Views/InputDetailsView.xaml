@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Intermediario.Views.InputDetailsView"
+             xmlns:prism ="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Provider"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+                    
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Text="{Binding SelectedPurchase.Provider.Name}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Product"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding SelectedPurchase.Product.Name}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Text="Amount"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Text="{Binding SelectedPurchase.Amount}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Text="Provider"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Text="{Binding SelectedPurchase.PriceIn}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Text="DatePurchase"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Text="{Binding SelectedPurchase.DatePurchase}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    Text="Remarks"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Text="{Binding SelectedPurchase.Remarks}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    >
+
+                </Label>
+
+
+            </Grid>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

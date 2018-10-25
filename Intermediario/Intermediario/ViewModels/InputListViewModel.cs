@@ -1,12 +1,15 @@
 ﻿using Intermediario.Models;
 using Intermediario.Services;
+using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Intermediario.ViewModels
 {
@@ -15,6 +18,7 @@ namespace Intermediario.ViewModels
         #region Services
 
         PurchaseManager purchaseManager;
+        INavigationService _navigationService;
 
         #endregion
 
@@ -31,8 +35,9 @@ namespace Intermediario.ViewModels
 
         #region Constructors
 
-        public InputListViewModel()
+        public InputListViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
             var provider = new Provider()
             {
                 PersonId = 1,
@@ -117,6 +122,29 @@ namespace Intermediario.ViewModels
         };
 
             InputList = new ObservableCollection<Purchase>(_listPurchase);
+        }
+        #endregion
+
+        #region Commands
+
+        public ICommand ItemTappedCommand
+
+        {
+            get
+            {
+                return new DelegateCommand<Purchase>(ItemTappedMethod);
+            }
+        }
+
+        private async void ItemTappedMethod(Purchase purchase)
+        {
+            var p = new NavigationParameters
+            {
+                { "purchaseSelected", purchase }
+            };
+
+            await _navigationService.NavigateAsync("InputDetailsView", p);
+            
         }
         #endregion
     }
