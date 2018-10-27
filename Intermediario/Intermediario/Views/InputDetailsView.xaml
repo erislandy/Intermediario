@@ -3,136 +3,193 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Intermediario.Views.InputDetailsView"
              xmlns:prism ="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True">
+             xmlns:converter="clr-namespace:Intermediario.Converters"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Input Details">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:CurrencyFormatConverter x:Key="converterCurrency"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    Text="Provider"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-                    
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Text="{Binding SelectedPurchase.Provider.Name}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    Text="Product"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Text="{Binding SelectedPurchase.Product.Name}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="2"
-                    Text="Amount"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    Text="{Binding SelectedPurchase.Amount}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="3"
-                    Text="Provider"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    Text="{Binding SelectedPurchase.PriceIn}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="4"
-                    Text="DatePurchase"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="4"
-                    Text="{Binding SelectedPurchase.DatePurchase}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="5"
-                    Text="Remarks"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="4"
-                    Text="{Binding SelectedPurchase.Remarks}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    >
-
-                </Label>
+            <ScrollView 
+            BackgroundColor="{StaticResource BackgroundColor}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
 
-            </Grid>
-           
+                    <Grid 
+                      Grid.Row="0"
+                      HeightRequest="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Image
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="10"
+                        Source="{Binding SelectedPurchase.Provider.ImagePath}"
+                        VerticalOptions="CenterAndExpand">
+
+                        </Image>
+
+                        <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        Margin="0,10,0,0"
+                        Text="{Binding SelectedPurchase.Provider.Name}"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="StartAndExpand"
+                        >
+
+                        </Label>
+                        <Label
+                        FontSize="Small"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        HorizontalOptions="StartAndExpand"
+                        Opacity="0.8"
+                        Text="{Binding SelectedPurchase.DatePurchase}"
+                        VerticalOptions="FillAndExpand"
+                        >
+
+                        </Label>
+                    </Grid>
+
+                    <Grid 
+                      Grid.Row="1"
+                      >
+                        <Image
+                            HeightRequest="300"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0,20,0"
+                        Source="{Binding SelectedPurchase.Product.ImagePath}"
+                        VerticalOptions="FillAndExpand">
+
+                        </Image>
+                    </Grid>
+
+                    <Grid 
+                     Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="4"
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        Margin="0,10,0,0"
+                        Text="{Binding SelectedPurchase.Product.Name}"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        >
+                        </Label>
+
+                        <Label
+                        FontSize="Medium"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Margin="10"
+                        Opacity="0.8"
+                        Text="Cantidad:"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand">
+                        </Label>
+
+                        <Label
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding  SelectedPurchase.Amount}"
+                        TextColor="{StaticResource AccentColor1}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand">
+                        </Label>
+
+                        <Label
+                        FontSize="Medium"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Margin="10"
+                        Opacity="0.8"
+                        Text="Price Input:"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="EndAndExpand">
+                        </Label>
+
+                        <Label
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Grid.Column="3"
+                        Grid.Row="1"
+                        Text="{Binding  SelectedPurchase.PriceIn, Converter={StaticResource converterCurrency}}"
+                        TextColor="{StaticResource AccentColor2}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand">
+                        </Label>
+
+                        <Label
+                        FontSize="Medium"
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Margin="10"
+                        Opacity="0.8"
+                        Text="Remarks:"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand">
+                        </Label>
+
+                        <Label
+                        FontSize="Small"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        Margin="10"
+                        Opacity="0.8"
+                        Text="{Binding  SelectedPurchase.Remarks}"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand">
+                        </Label>
+
+
+                    </Grid>
+                </Grid>
+            </ScrollView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

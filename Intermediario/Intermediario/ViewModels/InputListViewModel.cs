@@ -44,21 +44,23 @@ namespace Intermediario.ViewModels
                 Name = "Carlos",
                 LastName = "Mambrake",
                 PhoneNumber = "52948962",
-                Address = "Guantanamo,Cuba"
+                Address = "Guantanamo,Cuba",
+                ImagePath = "duenno.jpg" 
             };
             var provider1 = new Provider()
             {
                 PersonId = 2,
-                Name = "Justo",
-                LastName = "Lazaro",
+                Name = "Rosmeri",
+                LastName = "Escobar",
                 PhoneNumber = "52948962",
-                Address = "Habana,Cuba"
+                Address = "Habana,Cuba",
+                ImagePath="encargada.jpg"
             };
             var product1 = new Product()
             {
                 ProductId = 1,
                 CategoryId = 1,
-                Image = "icon3",
+                ImagePath = "leche_de_vaca.jpg",
                 Name = "Leche",
                 Remarks = "Leche de vaca",
 
@@ -67,7 +69,7 @@ namespace Intermediario.ViewModels
             {
                 ProductId = 2,
                 CategoryId = 1,
-                Image = "icon1",
+                ImagePath = "mantequilla.jpg",
                 Name = "Mantequilla",
                 Remarks = "Buena",
             };
@@ -75,7 +77,7 @@ namespace Intermediario.ViewModels
             {
                 ProductId = 3,
                 CategoryId = 2,
-                Image = "icon3",
+                ImagePath = "mochila.jpg",
                 Name = "Mochila",
                 Remarks = "Leche de vaca",
 
@@ -92,6 +94,7 @@ namespace Intermediario.ViewModels
                     PriceIn = 20,
                     ProviderId = provider.PersonId,
                     Provider = provider,
+                    Remarks="Carlos trajo elementos son poner precio"
 
                 },
                 new Purchase()
@@ -104,6 +107,7 @@ namespace Intermediario.ViewModels
                     PriceIn = 20,
                     ProviderId = provider.PersonId,
                     Provider = provider,
+                    Remarks="Carlos trajo elementos son poner precio"
 
                 },
                  new Purchase()
@@ -116,6 +120,7 @@ namespace Intermediario.ViewModels
                     PriceIn = 20,
                     ProviderId = provider1.PersonId,
                     Provider = provider1,
+                    Remarks="Carlos trajo elementos son poner precio"
 
                 },
 

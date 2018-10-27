@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\CurrencyFormatConverter.cs" />
     <Compile Include="Converters\NameToCaracterConverter.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Interfaces\ICategoriesManager.cs" />

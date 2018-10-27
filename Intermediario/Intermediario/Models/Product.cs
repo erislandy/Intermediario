@@ -21,7 +21,7 @@ namespace Intermediario.Models
         public int ProductId { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
+        public string ImagePath { get; set; }
         public string Remarks { get; set; }
 
         //Navigation Properties
