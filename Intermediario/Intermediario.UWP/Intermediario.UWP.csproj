@@ -108,6 +108,7 @@
     <None Include="Intermediario.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addIcon.png" />
     <Content Include="duenno.jpg" />
     <Content Include="encargada.jpg" />
     <Content Include="inputs.png" />

@@ -67,6 +67,7 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\InputDetailsViewModel.cs" />
     <Compile Include="ViewModels\InputListViewModel.cs" />
+    <Compile Include="ViewModels\NewInputViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
@@ -93,6 +94,9 @@
     </Compile>
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewInputView.xaml.cs">
+      <DependentUpon>NewInputView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OperationsView.xaml.cs">
       <DependentUpon>OperationsView.xaml</DependentUpon>
@@ -214,6 +218,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\InputDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\NewInputView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

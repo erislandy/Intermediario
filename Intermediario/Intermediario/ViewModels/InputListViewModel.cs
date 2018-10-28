@@ -223,6 +223,20 @@ namespace Intermediario.ViewModels
             }
         }
 
+        public ICommand NewInputCommand
+        {
+            get
+            {
+                return new DelegateCommand(NewInputMethod);
+            }
+            
+        }
+
+        private void NewInputMethod()
+        {
+            _navigationService.NavigateAsync("NewInputView");
+        }
+
         #endregion
     }
 }

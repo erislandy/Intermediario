@@ -13,6 +13,16 @@
             <converter:NameToCaracterConverter x:Key="converterName"/>
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem
+            Command="{Binding NewInputCommand}"
+            Icon="addIcon.png">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
              BackgroundColor="{StaticResource BackgroundColor}">

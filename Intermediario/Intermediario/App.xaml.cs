@@ -30,6 +30,7 @@ namespace Intermediario
             Container.RegisterTypeForNavigation<ManagerView>();
             Container.RegisterTypeForNavigation<PayListView>();
             Container.RegisterTypeForNavigation<InputDetailsView>();
+            Container.RegisterTypeForNavigation<NewInputView>();
 
 
         }
