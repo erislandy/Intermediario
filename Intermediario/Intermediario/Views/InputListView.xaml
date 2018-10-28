@@ -33,7 +33,7 @@
                     HorizontalOptions="StartAndExpand"
                     Margin="10,0,0,0"
                     Opacity="0.8"
-                    Text="All inputs"
+                    Text="Custom inputs"
                     TextColor="{StaticResource FontColor}"
                     VerticalOptions="CenterAndExpand">
                     
@@ -44,7 +44,15 @@
                     Grid.Column="1"
                     Grid.Row="0"
                     Margin="0,0,20,0"
-                    VerticalOptions="CenterAndExpand">
+                    VerticalOptions="CenterAndExpand"
+                    IsToggled="{Binding IsToggled}">
+                    <Switch.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            EventName="Toggled"
+                            Command="{Binding ToggledCommand}">
+                            
+                        </behaviors:EventToCommandBehavior>
+                    </Switch.Behaviors>
                     
                 </Switch>
                 <Label
@@ -61,6 +69,7 @@
 
                 </Label>
                 <DatePicker
+                    Date="{Binding DateFirst}"
                     Grid.Column="1"
                     Grid.Row="1"
                     HorizontalOptions="StartAndExpand"
@@ -84,6 +93,7 @@
 
                 </Label>
                 <DatePicker
+                    Date="{Binding DateSecond}"
                     Grid.Column="1"
                     Grid.Row="2"
                     HorizontalOptions="StartAndExpand"
@@ -144,6 +154,7 @@
                                     Grid.Row="0"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding Provider.Name}"
+                                    TextColor="{StaticResource FontColor}"
                                     VerticalOptions="CenterAndExpand">
                                     
                                 </Label>
@@ -156,6 +167,7 @@
                                     Opacity="0.5"
                                     Margin="5,0,0,0"
                                     Text="{Binding Product.Name}"
+                                    TextColor="{StaticResource FontColor}"
                                     VerticalOptions="CenterAndExpand">
                                 </Label>
 
@@ -167,6 +179,7 @@
                                     Opacity="0.5"
                                     Margin="5,0,0,0"
                                     Text="{Binding DatePurchase}"
+                                    TextColor="{StaticResource FontColor}"
                                     VerticalOptions="CenterAndExpand">
                                 </Label>
                                 
@@ -174,7 +187,8 @@
                                     FontAttributes="Bold"
                                     FontSize="Small"
                                     Grid.Column="3"
-                                    Grid.Row="1"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
                                     HorizontalOptions="EndAndExpand"
                                     Opacity="0.5"
                                     Margin="0,0,5,0"
@@ -188,6 +202,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button
+                BackgroundColor="{StaticResource AccentColor1}"
+                FontSize="22"
+                HorizontalOptions="FillAndExpand"
+                Text="Submit"
+                TextColor="White"
+                VerticalOptions="CenterAndExpand"
+                Margin="10"
+                Command="{Binding SubmitCommand}"
+                IsVisible="{Binding IsToggled, Source={x:Reference InputSwitch}}">
+                
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

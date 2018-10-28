@@ -25,12 +25,37 @@ namespace Intermediario.ViewModels
         #region Attributes
 
         IList<Purchase> _listPurchase;
+        ObservableCollection<Purchase> _listObservablePurchase;
+        bool _isToggled;
+        DateTime _dateFirst;
+        DateTime _dateSecond;
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<Purchase> InputList { get; set; }
+        public ObservableCollection<Purchase> InputList
+        {
+            get => _listObservablePurchase;
+            set => SetProperty(ref _listObservablePurchase, value);
+        }
+        public bool IsToggled
+        {
+            get => _isToggled;
+            set => SetProperty(ref _isToggled, value);
+        }
+
+        public DateTime DateFirst
+        {
+            get => _dateFirst;
+            set => SetProperty(ref _dateFirst, value);
+        }
+
+        public DateTime DateSecond
+        {
+            get => _dateSecond;
+            set => SetProperty(ref _dateSecond, value);
+        }
         #endregion
 
         #region Constructors
@@ -45,7 +70,7 @@ namespace Intermediario.ViewModels
                 LastName = "Mambrake",
                 PhoneNumber = "52948962",
                 Address = "Guantanamo,Cuba",
-                ImagePath = "duenno.jpg" 
+                ImagePath = "duenno.jpg"
             };
             var provider1 = new Provider()
             {
@@ -54,7 +79,7 @@ namespace Intermediario.ViewModels
                 LastName = "Escobar",
                 PhoneNumber = "52948962",
                 Address = "Habana,Cuba",
-                ImagePath="encargada.jpg"
+                ImagePath = "encargada.jpg"
             };
             var product1 = new Product()
             {
@@ -87,7 +112,7 @@ namespace Intermediario.ViewModels
                 new Purchase()
                 {
                     PurchaseId = 1,
-                    DatePurchase = DateTime.Now,
+                    DatePurchase = new DateTime(2018,1,1),
                     ProductId = product1.ProductId,
                     Product = product1,
                     Amount = 10,
@@ -100,7 +125,7 @@ namespace Intermediario.ViewModels
                 new Purchase()
                 {
                     PurchaseId = 2,
-                    DatePurchase = DateTime.Now,
+                    DatePurchase = new DateTime(2018,3,1),
                     ProductId = product2.ProductId,
                     Product = product2,
                     Amount = 10,
@@ -113,7 +138,7 @@ namespace Intermediario.ViewModels
                  new Purchase()
                 {
                     PurchaseId = 3,
-                    DatePurchase = DateTime.Now,
+                    DatePurchase = new DateTime(2018,5,1),
                     ProductId = product3.ProductId,
                     Product = product3,
                     Amount = 15,
@@ -127,6 +152,9 @@ namespace Intermediario.ViewModels
         };
 
             InputList = new ObservableCollection<Purchase>(_listPurchase);
+
+            DateFirst = DateTime.Now;
+            DateSecond = DateTime.Now;
         }
         #endregion
 
@@ -149,8 +177,52 @@ namespace Intermediario.ViewModels
             };
 
             await _navigationService.NavigateAsync("InputDetailsView", p);
-            
+
         }
+
+        public ICommand SubmitCommand
+        {
+            get
+            {
+                return new DelegateCommand(SubmitMethod);
+            }
+
+        }
+
+        private void SubmitMethod()
+        {
+            if(DateFirst > DateSecond)
+            {
+                App.Current.MainPage.DisplayAlert("Error", "First date can not older than second date", "Done");
+                return;
+            }
+
+            InputList = new ObservableCollection<Purchase>(
+                                                            _listPurchase.Where(p => p.DatePurchase >= DateFirst && p.DatePurchase <= DateSecond)
+                                                                         .ToList());
+        }
+
+        public ICommand ToggledCommand
+        {
+            get
+            {
+                return new DelegateCommand(ToggledMethod);
+            }
+
+        }
+
+        private void ToggledMethod()
+        {
+            if(IsToggled)
+            {
+                InputList = new ObservableCollection<Purchase>();
+            }
+            else
+            {
+                InputList = new ObservableCollection<Purchase>(_listPurchase);
+            }
+        }
+
         #endregion
     }
 }
